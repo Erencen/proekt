@@ -23,6 +23,19 @@ app.use(express.json());
  app.use('/api/cards', cardsRouter)
  app.use('/api/search', searchRouter)
 
+ app.get('/:id', async (req, res) => {
+    const {id} = req.params;
+    
+    const allBuyCard = await Basket.findAll({
+        where: {
+            userId: id,
+        }
+    })
+    console.log(allBuyCard);
+    res.json(allBuyCard)
+ });
+    
+
 
     
 
