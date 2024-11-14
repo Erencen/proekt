@@ -20,6 +20,7 @@ function MainPage() {
   }, []);
 
   return (
+  
     <>
     <Row>
       {cards.map((card) => (

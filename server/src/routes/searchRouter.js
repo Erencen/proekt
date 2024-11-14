@@ -1,14 +1,14 @@
 const searchRouter = require('express').Router();
 const { Op } = require('sequelize');
-const { Craft } = require('../../db/models');
+const { Card } = require('../../db/models');
 
 searchRouter.get('/', async (req, res) => {
   const { filter } = req.query;
   try {
-    const craftArr = await Craft.findAll({
+    const cardArr = await Card.findAll({
       where: { title: { [Op.iLike]: `%${filter}%` } },
     });
-    res.json(craftArr);
+    res.json(cardArr);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Ошибка сервера' });

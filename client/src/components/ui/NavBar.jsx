@@ -19,8 +19,12 @@ export default function NavBar({ user, logoutHandler }) {
               My xs
             </NavLink>
           )}
+          <NavLink className="nav-link" to={"/addcard"}>
+            {" "}
+            Добавить карту
+          </NavLink>
         </Nav>
-        <Link to={'/searchba'} >
+        <Link to={"/search/"}>
           <Button variant="outline-success">Search</Button>
         </Link>
         <Nav>

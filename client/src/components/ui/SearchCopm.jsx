@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from "react";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
-import axios from "axios";
+import Card from "react-bootstrap/Card";
 
-export default function SearchCopm() {
-    const [input, setInput] = useState()
-    const [searchCard, setSearchCard] = useState()
-    useEffect(() => {
-        let timeoutId;
-        if (input) {
-          timeoutId = setTimeout(() => {
-            axios(`/api/search/?filter=${input}`).then((res) =>
-              setSearchCard(res.data)
-            );
-          }, 500);
-          return () => clearTimeout(timeoutId)
-        } else {
-          setSearchCard([])
-        }
-      }, [input]);
-    return (
-        
-  )
+
+export default function SearchCopm({card}) {
+  return (
+    <Card style={{ width: "18rem" }} key={card.userId}>
+        <Card.Img variant="top" src={card.img} />
+        <Card.Body>
+          <Card.Title>{card.title}</Card.Title>
+        </Card.Body>
+        <ListGroup className="list-group-flush">
+          <ListGroup.Item>Цена:{card.price}</ListGroup.Item>
+          <ListGroup.Item>Качество:{card.condition}</ListGroup.Item>
+        </ListGroup>
+        <Card.Body>
+          <Card.Link href="#">Добавить в корзину</Card.Link>
+        </Card.Body>
+      </Card>
+  );
 }
