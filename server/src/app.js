@@ -23,15 +23,14 @@ app.use(express.json());
  app.get('/:id', async (req, res) => {
     const {id} = req.params;
     
-    const allCard = await Basket.findAll({
+    const allBuyCard = await Basket.findAll({
         where: {
             userId: id,
-            as: 'basket'
         }
     })
-    console.log(allCard);
-    res.json(allCard)
- })
+    console.log(allBuyCard);
+    res.json(allBuyCard)
+ });
 
     
 

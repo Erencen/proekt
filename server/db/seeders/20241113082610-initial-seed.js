@@ -95,6 +95,28 @@ module.exports = {
       },
     ]);
 
+    await queryInterface.bulkInsert('Baskets', [
+      {
+        userId: 1,
+        cardId: 1,
+      },
+      {
+        userId: 1,
+        cardId: 2,
+      },
+      {
+        userId: 1,
+        cardId: 3,
+      },
+      {
+        userId: 2,
+        cardId: 4,
+      },
+      {
+        userId: 2,
+        cardId: 5,
+      }
+    ]);
     /**
      * Add seed commands here.
      *
