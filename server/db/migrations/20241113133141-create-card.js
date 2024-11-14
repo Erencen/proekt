@@ -21,6 +21,10 @@ module.exports = {
       condition: {
         type: Sequelize.STRING
       },
+      status: {
+        type: Sequelize.STRING,
+        defaultValue: 'В наличии'
+      },
       userId: {
         type: Sequelize.INTEGER,
         references: {
