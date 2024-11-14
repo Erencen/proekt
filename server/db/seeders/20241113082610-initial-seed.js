@@ -25,7 +25,7 @@ module.exports = {
     await queryInterface.bulkInsert('Cards', [
       {
         title: 'Serra Angel',
-        img: 'https://example.com/serra_angel.jpg',
+        img: 'https://www.cardplace.ru/images/articles/Elvis/KnowEverything/1.jpg',
         price: 3,
         condition: 'Mint',
         userId: 1,

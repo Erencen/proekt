@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import CardComp from "../ui/CardComp";
+import axios from "axios";
+import Row from "react-bootstrap/esm/Row";
 
-export default function MainPage() {
+function MainPage() {
+  const [cards, setCards] = useState([]);
+  useEffect(() => {
+    const fetchCards = async () => {
+      try {
+        const { data } = await axios.get(`/api/cards`);
+        setCards(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Ошибка при загрузке карточек:", error);
+      }
+    };
+
+    fetchCards();
+  }, []);
+
   return (
-    <div>
-      Hello World!!
-    </div>
-  )
+    <>
+    <Row>
+      {cards.map((card) => (
+        <CardComp key={card.id} card={card} />
+      ))}
+      </Row>
+    </>
+  );
 }
+
+export default MainPage;
