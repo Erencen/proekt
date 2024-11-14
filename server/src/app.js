@@ -2,14 +2,14 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const authRouter = require('./routes/authRouter');
-const tokenRouter = require('./routes/tokenRouter');
-const cardsRouter = require('./routes/cardsRouter')
-const searchRouter = require('./routes/searchRouter')
+ const tokenRouter = require('./routes/tokenRouter');
+ const { Card, Basket, User } = require('../db/models');
+
+
 
 
 
 const app = express();
-
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -23,22 +23,20 @@ app.use(express.json());
  app.use('/api/cards', cardsRouter)
  app.use('/api/search', searchRouter)
 
- app.get('/:id', async (req, res) => {
-    const {id} = req.params;
-    
-    const allBuyCard = await Basket.findAll({
-        where: {
-            userId: id,
-        }
-    })
-    console.log(allBuyCard);
-    res.json(allBuyCard)
- });
-    
+app.get('/api/cards/basket/:userId', async (req, res) => {
+  const { userId } = req.params;
 
-
+  const buyCards = await Card.findAll({
+    include: {
+        model: User,
+        as: 'buy',
+        where: { id: userId }
+    }
+});
+  console.log(buyCards);
+  res.json(buyCards);
+});
     
-
 
 
 module.exports = app;

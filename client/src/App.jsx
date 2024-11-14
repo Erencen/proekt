@@ -5,6 +5,7 @@ import SignUpPage from "./components/pages/SignUpPage";
 import ProtectedRouter from "./components/HOCs/ProtectedRouter";
 import useUser from "./hooks/useUser";
 import LoginPage from "./components/pages/LoginPage";
+import BasketPage from "./components/pages/BasketPage";
 import CardAddForm from "./components/ui/CardAddForm";
 import SearchPage from "./components/pages/SearchPage";
 
@@ -20,13 +21,19 @@ function App() {
           element: <MainPage user={user} />,
         },
         {
-          path: "/my-xs",
+          path: "/basket/:userId",
           element: (
             <ProtectedRouter
               isAllowed={user.status === "logged"}
               redirect="/auth/login"
-            ></ProtectedRouter>
+            ><BasketPage /></ProtectedRouter>
           ),
+          children: [
+            {
+              path: "/addcard",
+              element: <CardAddForm />,
+            }
+          ]
         },
         {
           path: '/search',
