@@ -14,11 +14,6 @@ export default function NavBar({ user, logoutHandler }) {
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
-          {user.data && (
-            <NavLink to="/my-xs" className="nav-link">
-              My xs
-            </NavLink>
-          )}
           <NavLink className="nav-link" to={"/addcard"}>
             {" "}
             Добавить карту
@@ -27,7 +22,6 @@ export default function NavBar({ user, logoutHandler }) {
         <Link to={"/search/"}>
           <Button variant="outline-success">Search</Button>
         </Link>
-
         <Nav>
           {!user.data && (
             <>

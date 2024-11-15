@@ -7,7 +7,7 @@ const authRouter = require('./routes/authRouter');
 const cardsRouter = require('./routes/cardsRouter');
 const searchRouter = require('./routes/searchRouter');
 const basketRouter = require('./routes/basketRouter')
-
+const path = require('path');
 
 
 const app = express();
@@ -24,6 +24,11 @@ app.use(express.json());
  app.use('/api/cards', cardsRouter)
  app.use('/api/search', searchRouter)
  app.use('/api/card/basket/add', basketRouter )
+
+ app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+});
 
 app.get('/api/cards/basket/:userId', async (req, res) => {
   const { userId } = req.params;

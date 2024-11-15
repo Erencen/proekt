@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CardComp from "../ui/CardComp";
 import axios from "axios";
 import Row from "react-bootstrap/esm/Row";
+import axiosInstance from "../api/axiosInstance";
 
 function MainPage() {
   const [cards, setCards] = useState([]);
@@ -20,7 +21,7 @@ function MainPage() {
   }, []);
   const handleAddToBasket = async (cardId) => {
     try {
-      const response = await axios.post('/api/card/basket/add', { cardId });
+      const response = await axiosInstance.post(`/card/basket/add/${cardId}`);
       console.log('Карточка добавлена в корзину:', response.data);
     } catch (error) {
       console.error("Ошибка при добавлении карточки в корзину:", error);
