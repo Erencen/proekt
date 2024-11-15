@@ -11,6 +11,8 @@ export default function BasketPage() {
     const fetchCards = async () => {
       try {
         const { data } = await axiosInstance.get(`/cards/basket/${userId}`);
+        
+        
         setCards(data);
       } catch (error) {
         console.error("Ошибка при получении карточек:", error);
@@ -19,7 +21,7 @@ export default function BasketPage() {
 
     fetchCards();
   }, [userId]);
-  console.log(cards);
+  
 
   const handleOrder = async (cardId) => { 
     try { 
