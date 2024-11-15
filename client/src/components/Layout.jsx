@@ -7,7 +7,7 @@ export default function Layout({ user, logoutHandler }) {
  return (
  <Loader showSpinner={user.status === 'fetching'}>
  <Container>
- <img src="https://ltdfoto.ru/images/2024/11/15/123.jpg" />
+ <img src="https://ltdfoto.ru/images/2024/11/15/logo4.jpg" />
  <NavBar user={user} logoutHandler={logoutHandler} />
  <Outlet />
  </Container>
