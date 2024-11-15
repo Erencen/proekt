@@ -20,11 +20,27 @@ export default function BasketPage() {
     fetchCards();
   }, [userId]);
   console.log(cards);
+
+  const handleOrder = async (cardId) => { 
+    try { 
+      
+      await axiosInstance.put(`/cards/${cardId}`, { status: "Нет в наличии" }); 
+       
+       
+      setCards((prevCards) => 
+        prevCards.map((card) => 
+          card.id === cardId ? { ...card, status: "нет в наличии" } : card 
+        ) 
+      ); 
+    } catch (error) { 
+      console.error("Ошибка при обновлении статуса карточки:", error); 
+    } 
+  };
   
   return (
     <Row>
       {cards.map((card) => (
-        <BasketComp key={card.id} card={card} />
+        <BasketComp key={card.id} card={card} handleOrder={handleOrder}/>
       ))}
     </Row>
   );

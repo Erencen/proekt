@@ -24,74 +24,84 @@ module.exports = {
     );
     await queryInterface.bulkInsert('Cards', [
       {
-        title: 'Serra Angel',
-        img: 'https://example.com/serra_angel.jpg',
+        title: 'Коррозийная буря',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/nph/ru/107-245x341.jpg',
         price: 3,
         condition: 'Mint',
         userId: 1,
+        status: 'В наличии'
       },
       {
-        title: 'Shivan Dragon',
-        img: 'https://example.com/shivan_dragon.jpg',
+        title: 'Должное Уважение',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/nph/ru/8-245x341.jpg',
         price: 15,
         condition: 'Near Mint',
         userId: 1,
+        status: 'В наличии'
       },
       {
-        title: 'Black Lotus',
-        img: 'https://example.com/black_lotus.jpg',
+        title: 'Запретное солнце',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/nph/ru/132-245x341.jpg',
         price: 20000,
         condition: 'Good',
         userId: 1,
+        status: 'В наличии'
       },
       {
-        title: 'Counterspell',
-        img: 'https://example.com/counterspell.jpg',
+        title: 'Зараженное сознание',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/mbs/ru/22-245x341.jpg',
         price: 1,
         condition: 'Excellent',
         userId: 2,
+        status: 'В наличии'
       },
       {
-        title: 'Lightning Bolt',
-        img: 'https://example.com/lightning_bolt.jpg',
+        title: 'Паразитичесикий иплантант',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/nph/ru/67-245x341.jpg',
         price: 0.5,
         condition: 'Mint',
         userId: 2,
+        status: 'В наличии'
       },
       {
-        title: 'Giant Growth',
-        img: 'https://example.com/giant_growth.jpg',
+        title: 'Гнойный взрыв',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/nph/ru/64-245x341.jpg',
         price: 0.2,
         condition: 'Near Mint',
         userId: 2,
+        status: 'В наличии'
       },
       {
-        title: 'Time Walk',
-        img: 'https://example.com/time_walk.jpg',
+        title: 'Виридийский урожай',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/nph/ru/125-245x341.jpg',
         price: 10,
         condition: 'Good',
         userId: 2,
+        status: 'В наличии'
       },
       {
-        title: 'Wrath of God',
-        img: 'https://example.com/wrath_of_god.jpg',
+        title: 'Ненасытный душеед',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/nph/ru/140-245x341.jpg',
         price: 4,
         condition: 'Excellent',
         userId: 2,
+        status: 'В наличии'
       },
       {
-        title: 'Demonic Tutor',
-        img: 'https://example.com/demonic_tutor.jpg',
+        title: 'Паутина Опустошения',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/mbs/ru/105-245x341.jpg',
         price: 8,
         condition: 'Mint',
         userId: 2,
+        status: 'В наличии'
       },
       {
-        title: 'Swords to Plowshares',
-        img: 'https://example.com/swords_to_plowshares.jpg',
+        title: 'Озеро Знаний',
+        img: 'https://spellmarket.ru/image/cache/catalog/cards/mbs/ru/111-245x341.jpg',
         price: 5,
         condition: 'Near Mint',
         userId: 2,
+        status: 'В наличии'
       },
     ]);
 

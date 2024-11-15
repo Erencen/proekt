@@ -1,0 +1,20 @@
+.hover-card {
+    transition: transform 0.2s;
+  }
+  
+  .hover-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .image-container {
+    perspective: 1000px; 
+  }
+  
+  .image-container img {
+    transition: transform 0.5s; 
+  }
+  
+  .hover-card:hover .image-container img {
+    transform: rotateY(15deg);
+  }
+  

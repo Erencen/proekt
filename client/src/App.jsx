@@ -6,6 +6,9 @@ import ProtectedRouter from "./components/HOCs/ProtectedRouter";
 import useUser from "./hooks/useUser";
 import LoginPage from "./components/pages/LoginPage";
 import BasketPage from "./components/pages/BasketPage";
+import CardAddForm from "./components/ui/CardAddForm";
+import SearchPage from "./components/pages/SearchPage";
+
 function App() {
   const { logoutHandler, loginHandler, signUpHandler, user } = useUser();
   const router = createBrowserRouter([
@@ -24,6 +27,19 @@ function App() {
               isAllowed={user.status === "logged"}
               redirect="/auth/login"
             ><BasketPage /></ProtectedRouter>
+          ),
+        },
+        {
+          path: '/search',
+          element: <SearchPage/>
+        },
+        {
+          path: "/addcard",
+          element: (
+            <ProtectedRouter
+              isAllowed={user.status === "logged"}
+              redirect="/auth/login"
+            ><CardAddForm /></ProtectedRouter>
           ),
         },
         {
