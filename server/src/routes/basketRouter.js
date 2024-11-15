@@ -1,12 +1,14 @@
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
-const Basket = require('../../db/models/basket');
+const {Basket} = require('../../db/models');
 const basketRouter = require('express').Router();
 
-basketRouter.route('/').post(verifyAccessToken, async (req, res) => {
+basketRouter.route('/:cardId').post(verifyAccessToken, async (req, res) => {
   const { cardId } = req.params
   if (!cardId) {
     return res.status(400).json({ message: 'cardId is required' });
   }
+  console.log('Basket:', Basket);
+  
 
   try {
     const newBasket = await Basket.create({ cardId, as: 'buy', userId: res.locals.user.id });
@@ -19,4 +21,4 @@ basketRouter.route('/').post(verifyAccessToken, async (req, res) => {
 
 module.exports = basketRouter;
 
-module.exports = basketRouter;
+
