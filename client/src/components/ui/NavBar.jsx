@@ -4,7 +4,7 @@ import Button from "react-bootstrap/esm/Button";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink } from "react-router-dom";
-import Form from "react-bootstrap/Form"; // Импортируем Form
+import * as Icon from "react-bootstrap-icons";
 
 export default function NavBar({ user, logoutHandler }) {
   return (
@@ -27,6 +27,7 @@ export default function NavBar({ user, logoutHandler }) {
         <Link to={"/search/"}>
           <Button variant="outline-success">Search</Button>
         </Link>
+
         <Nav>
           {!user.data && (
             <>
@@ -54,6 +55,11 @@ export default function NavBar({ user, logoutHandler }) {
             </span>
           )}
         </Nav>
+        {user.data && (
+          <Link to={`/basket/${user.data.id}`} className="nav-link">
+            <Icon.Trash size={24}/>
+          </Link>
+        )}
       </Container>
     </Navbar>
   );

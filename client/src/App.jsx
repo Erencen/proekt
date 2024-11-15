@@ -28,12 +28,6 @@ function App() {
               redirect="/auth/login"
             ><BasketPage /></ProtectedRouter>
           ),
-          children: [
-            {
-              path: "/addcard",
-              element: <CardAddForm />,
-            }
-          ]
         },
         {
           path: '/search',
@@ -45,14 +39,8 @@ function App() {
             <ProtectedRouter
               isAllowed={user.status === "logged"}
               redirect="/auth/login"
-            ></ProtectedRouter>
+            ><CardAddForm /></ProtectedRouter>
           ),
-          children: [
-            {
-              path: "/addcard",
-              element: <CardAddForm />,
-            }
-          ]
         },
         {
           element: <ProtectedRouter isAllowed={user.status !== "logged"} />,

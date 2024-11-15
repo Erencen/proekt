@@ -1,7 +1,22 @@
-const basketRouter = require('express').Router()
+const { verifyAccessToken } = require('../middlewares/verifyTokens');
+const Basket = require('../../db/models/basket');
+const basketRouter = require('express').Router();
 
+basketRouter.route('/').post(verifyAccessToken, async (req, res) => {
+  const { cardId } = req.params
+  if (!cardId) {
+    return res.status(400).json({ message: 'cardId is required' });
+  }
 
-basketRouter.post('/cards/basket/:userId', async (req, res) => {
-    const { cardId } = req.params
-    const basketArr = await Basket.
-})
+  try {
+    const newBasket = await Basket.create({ cardId, as: 'buy', userId: res.locals.user.id });
+    res.status(201).json(newBasket);
+  } catch (error) {
+    console.error('Ошибка при добавлении в корзину:', error);
+    res.status(500).json({ message: 'Ошибка сервера' });
+  }
+});
+
+module.exports = basketRouter;
+
+module.exports = basketRouter;

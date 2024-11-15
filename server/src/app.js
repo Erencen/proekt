@@ -4,8 +4,9 @@ const morgan = require('morgan');
 const authRouter = require('./routes/authRouter');
  const tokenRouter = require('./routes/tokenRouter');
  const { Card, Basket, User } = require('../db/models');
-
-
+const cardsRouter = require('./routes/cardsRouter');
+const searchRouter = require('./routes/searchRouter');
+const basketRouter = require('./routes/basketRouter')
 
 
 
@@ -22,6 +23,7 @@ app.use(express.json());
  app.use('/api/tokens', tokenRouter);
  app.use('/api/cards', cardsRouter)
  app.use('/api/search', searchRouter)
+ app.use('/api/card/basket/add', basketRouter )
 
 app.get('/api/cards/basket/:userId', async (req, res) => {
   const { userId } = req.params;

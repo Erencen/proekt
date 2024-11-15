@@ -18,13 +18,21 @@ function MainPage() {
 
     fetchCards();
   }, []);
+  const handleAddToBasket = async (cardId) => {
+    try {
+      const response = await axios.post('/api/card/basket/add', { cardId });
+      console.log('Карточка добавлена в корзину:', response.data);
+    } catch (error) {
+      console.error("Ошибка при добавлении карточки в корзину:", error);
+    }
+  };
 
   return (
   
     <>
     <Row>
       {cards.map((card) => (
-        <CardComp key={card.id} card={card} />
+        <CardComp key={card.id} card={card} handleAddToBasket={handleAddToBasket}/>
       ))}
       </Row>
     </>
