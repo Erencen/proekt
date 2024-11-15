@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import CardComp from "../ui/CardComp";
 import axios from "axios";
 import Row from "react-bootstrap/esm/Row";
 import axiosInstance from "../api/axiosInstance";
+import "../ui/MainPage.css";
 
 function MainPage() {
   const [cards, setCards] = useState([]);
@@ -31,11 +32,13 @@ function MainPage() {
   return (
   
     <>
+    <div className="main-page">
     <Row>
       {cards.map((card) => (
         <CardComp key={card.id} card={card} handleAddToBasket={handleAddToBasket}/>
       ))}
       </Row>
+    </div>
     </>
   );
 }

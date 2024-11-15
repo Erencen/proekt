@@ -1,0 +1,39 @@
+.navbar {
+    background-color: #343a40; 
+    padding: 10px 20px; 
+  }
+  
+  .nav-link {
+    color: #ffffff; 
+    margin-right: 15px; 
+    transition: color 0.3s; 
+  }
+  
+  .nav-link:hover {
+    color: #adb5bd; 
+  }
+  
+  .button {
+    margin-left: 10px; 
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem; 
+    color: #ffffff; 
+  }
+  
+  .navbar .nav-link.active {
+    font-weight: bold; 
+    color: #ffc107; 
+  }
+.search-button {
+    margin-left: 15px; 
+    background-color: #263c2b; 
+    color: white; 
+    border: none; 
+    transition: background-color 0.3s; 
+  }
+  
+  .search-button:hover {
+    background-color: #218838; 
+  }

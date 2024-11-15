@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const authRouter = require('./routes/authRouter');
  const tokenRouter = require('./routes/tokenRouter');
- const { Card, Basket, User } = require('../db/models');
+ const { Card, User } = require('../db/models');
 const cardsRouter = require('./routes/cardsRouter');
 const searchRouter = require('./routes/searchRouter');
 const basketRouter = require('./routes/basketRouter')
@@ -35,7 +35,7 @@ app.use(express.json());
        where: { id: userId }
       }
     });
-    console.log(buyCards);
+   
     res.json(buyCards);
   });
   
